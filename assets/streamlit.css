@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+  --pink: #c86f91;
+  --pink-dark: #a74f73;
+  --ink: #3b3036;
+  --muted: #897981;
+  --line: #f0e2e8;
+  --blush: #fff9fb;
+}
+
+.stApp {
+  background: linear-gradient(135deg, #fff9fb 0%, #fff 52%, #fff8f5 100%);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+}
+
+[data-testid="stAppViewContainer"],
+[data-testid="stSidebar"] {
+  color: var(--ink);
+}
+
+[data-testid="stAppViewContainer"] p,
+[data-testid="stAppViewContainer"] label,
+[data-testid="stAppViewContainer"] [data-testid="stMarkdownContainer"],
+[data-testid="stAppViewContainer"] [data-testid="stWidgetLabel"],
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] label,
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"],
+[data-testid="stSidebar"] [data-testid="stWidgetLabel"] {
+  color: var(--ink);
+}
+
+[data-testid="stHeader"] {
+  background: rgba(255, 255, 255, .86);
+}
+
+[data-testid="stSidebar"] {
+  background: linear-gradient(180deg, #fffafd 0%, #fff 100%);
+  border-right: 1px solid var(--line);
+}
+
+h1, h2, h3 {
+  color: var(--ink);
+  font-family: "Playfair Display", Georgia, serif;
+  letter-spacing: -.025em;
+}
+
+[data-testid="stMetric"] {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 5px 18px rgba(104, 65, 82, .045);
+}
+
+[data-testid="stMetricLabel"] {
+  color: var(--muted);
+}
+
+[data-testid="stMetricValue"],
+[data-testid="stMetricValue"] p,
+[data-testid="stMetricDelta"] {
+  color: var(--ink);
+}
+
+[data-testid="stRadio"] label,
+[data-testid="stRadio"] label p,
+[data-testid="stSelectbox"] label,
+[data-testid="stTextInput"] label,
+[data-testid="stNumberInput"] label,
+[data-testid="stDateInput"] label,
+[data-testid="stTextArea"] label,
+[data-testid="stFileUploader"] label,
+[data-testid="stCheckbox"] label {
+  color: var(--ink);
+}
+
+[data-testid="stWidgetLabel"] p {
+  color: var(--ink);
+}
+
+[data-baseweb="input"],
+[data-baseweb="select"],
+[data-baseweb="textarea"] {
+  color: var(--ink);
+  background-color: #fff;
+}
+
+[data-testid="stVerticalBlockBorderWrapper"] {
+  border-color: var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .88);
+  box-shadow: 0 5px 18px rgba(104, 65, 82, .045);
+}
+
+.stButton > button,
+.stDownloadButton > button,
+.stFormSubmitButton > button {
+  border-radius: 10px;
+  border-color: var(--line);
+  font-weight: 600;
+}
+
+.stButton > button[kind="primary"],
+.stFormSubmitButton > button[kind="primary"] {
+  background: var(--pink);
+  border-color: var(--pink);
+  color: white;
+}
+
+.stButton > button:hover,
+.stDownloadButton > button:hover,
+.stFormSubmitButton > button:hover {
+  border-color: #dfa8bc;
+  color: var(--pink-dark);
+}
+
+[data-testid="stFileUploaderDropzone"] {
+  background: #fffafd;
+  border-color: #e8c8d5;
+  border-radius: 14px;
+}
+
+[data-testid="stImage"] img {
+  border-radius: 12px;
+}
+
+.stCaption {
+  color: var(--muted);
+}

@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.venv/
+clothing_inventory.db
+clothing_inventory.db-shm
+clothing_inventory.db-wal
+.streamlit/secrets.toml
