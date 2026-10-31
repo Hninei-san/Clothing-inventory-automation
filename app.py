@@ -105,7 +105,7 @@ m4.metric("Photos added", f"{f['photo'].notna().sum()} / {len(f)}")
 
 missing = int(((df["color"] == "") | (df["size"] == "")).sum())
 if missing:
-    st.info(f"{missing} products still need a color or size — fill them in `inventory_data.py`.", icon="✏️")
+    st.info(f"{missing} products still need a color or size .", icon="✏️")
 
 # ---------- gallery ----------
 if view == "Gallery":
