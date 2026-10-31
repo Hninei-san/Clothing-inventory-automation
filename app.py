@@ -63,6 +63,7 @@ def build_products() -> pd.DataFrame:
                 qty=p["qty"],
                 price=round(p["spent"] / p["qty"]),
                 list_price=p["list_price"],
+                sold_out=bool(d.get("sold_out", False)),
                 brand=p["brand"],
                 store=p["store"],
                 date=p["date"],
@@ -78,17 +79,27 @@ df = build_products()
 # ---------- sidebar ----------
 st.sidebar.header("Filters")
 brands = st.sidebar.multiselect("Brand", sorted(df["brand"].unique()), default=sorted(df["brand"].unique()))
+stock_filter = st.sidebar.segmented_control(
+    "Stock status",
+    ["All", "Sold Out", "Current Stock"],
+    default="All",
+    width="stretch",
+)
 search = st.sidebar.text_input("Search name / color / size / code")
-sort_by = st.sidebar.selectbox("Sort by", ["Newest purchase", "Name A–Z", "Price high → low", "Price low → high", "Quantity"])
+sort_by = st.sidebar.selectbox("Sort by", ["Sold Out", "Name A–Z", "Price high → low", "Price low → high", "Quantity"])
 view = st.sidebar.radio("View", ["Gallery", "Table"], horizontal=True)
 cols_n = st.sidebar.slider("Gallery columns", 2, 6, 4) if view == "Gallery" else 4
 
 f = df[df["brand"].isin(brands)]
+if stock_filter == "Sold Out":
+    f = f[f["sold_out"]]
+elif stock_filter == "Current Stock":
+    f = f[~f["sold_out"]]
 if search:
     s = search.lower()
     f = f[f.apply(lambda r: s in f"{r['name']} {r['color']} {r['size']} {r['code']}".lower(), axis=1)]
 f = {
-    "Newest purchase": f.sort_values(["date", "name"], ascending=[False, True]),
+    "Sold Out": f.sort_values(["sold_out", "name"], ascending=[False, True]),
     "Name A–Z": f.sort_values("name"),
     "Price high → low": f.sort_values("price", ascending=False),
     "Price low → high": f.sort_values("price"),
@@ -96,12 +107,17 @@ f = {
 }[sort_by]
 
 # ---------- header ----------
-st.title("👗 My Inventory")
-m1, m2, m3, m4 = st.columns(4)
+st.title("Two & Co")
+m1, m2, m3, m4, m5 = st.columns(5)
 m1.metric("Products", len(f))
 m2.metric("Total pieces", int(f["qty"].sum()))
 m3.metric("Total spent", f"¥{int((f['price'] * f['qty']).sum()):,}")
-m4.metric("Photos added", f"{f['photo'].notna().sum()} / {len(f)}")
+m4.metric("Sold Out Pieces", int(f.loc[f["sold_out"], "qty"].sum()))
+m5.metric(
+    "Sold Out Value",
+    f"¥{int((f.loc[f['sold_out'], 'list_price'] * f.loc[f['sold_out'], 'qty']).sum()):,}",
+    help="Estimated at list price for all purchased units marked Sold Out.",
+)
 
 missing = int(((df["color"] == "") | (df["size"] == "")).sum())
 if missing:
@@ -118,6 +134,7 @@ if view == "Gallery":
         .inventory-name{height:3em;margin:12px 0 4px;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-height:1.5em;font-weight:600}
         .inventory-detail{height:1.5em;overflow:hidden;color:rgba(128,128,128,.95);font-size:.85rem;white-space:nowrap;text-overflow:ellipsis}
         .inventory-price{height:1.8em;margin:8px 0 4px}
+        .inventory-status{height:1.5em;color:#b42318;font-size:.85rem;font-weight:700}
         </style>
         """,
         unsafe_allow_html=True,
@@ -145,6 +162,7 @@ if view == "Gallery":
                     f"<div class='inventory-price'>{price_txt} · <strong>Qty {int(p['qty'])}</strong></div>"
                     f"<div class='inventory-detail'>{html.escape(str(p['brand']))}"
                     f" · {html.escape(str(p['date'])[:10])}</div>"
+                    f"<div class='inventory-status'>{'Sold Out' if p['sold_out'] else ''}</div>"
                     "</div>"
                 )
                 st.markdown(card, unsafe_allow_html=True)
@@ -158,6 +176,7 @@ else:
             "Name": f["name"],
             "Size": f["size"],
             "Quantity": f["qty"],
+            "Status": ["Sold Out" if sold_out else "—" for sold_out in f["sold_out"]],
             "Price (¥)": f["price"],
             "Brand": f["brand"],
             "Date": f["date"].str[:10],

@@ -5,55 +5,57 @@ YOUR PRODUCT DATA  --  edit this file, no database needed.
 2) Add photos later: drop a file named after the product code into the `images/` folder,
    e.g. images/2200079328649.jpg   (.jpg / .jpeg / .png / .webp all work).
    Or point to a photo yourself with "photo": "images/anything.jpg" in DETAILS.
+3) Mark a product sold out by adding "sold_out": True to its DETAILS entry. The
+   dashboard estimates sold-out value at list price for all purchased units marked sold out.
 """
 
 # ---------------------------------------------------------------------------
 # Color / size per product code.  Fill the empty strings in.
 # ---------------------------------------------------------------------------
 DETAILS = {
-    "2200079328649": {"color": "", "size": "", "photo": ""},  # Double-layered corduroy coat
-    "2200083187959": {"color": "", "size": "", "photo": ""},  # Double Metal Button Cardigan
+    "2200079328649": {"color": "Navy", "size": "M", "photo": ""},  # Double-layered corduroy coat
+    "2200083187959": {"color": "Navy", "size": "M", "photo": "img/2200083187959.png"},  # Double Metal Button Cardigan
     "2200082429869": {"color": "Black", "size": "S", "photo": "img/2200082429869.png"},  # W Bra Feel Lace Tank Top
-    "2200083377817": {"color": "", "size": "", "photo": ""},  # W Satin Dot Flare Skirt
-    "2200082907190": {"color": "", "size": "", "photo": ""},  # Double-breasted front button sweater
-    "2200082126645": {"color": "", "size": "", "photo": ""},  # W Satin Dot Flare Skirt
-    "2200083187881": {"color": "", "size": "", "photo": ""},  # Double Metal Button Cardigan
-    "2200083200030": {"color": "", "size": "", "photo": ""},  # W Bra Feel Lace Tank Top
-    "2200082429791": {"color": "", "size": "", "photo": ""},  # W Bra Feel Lace Tank Top
-    "2200079948434": {"color": "", "size": "", "photo": ""},  # Double-layered openwork knit cardigan
+    "2200083377817": {"color": "", "size": "", "photo": "", "sold_out": True},  # W Satin Dot Flare Skirt
+    "2200082907190": {"color": "", "size": "", "photo": "", "sold_out": True},  # Double-breasted front button sweater
+    "2200082126645": {"color": "", "size": "", "photo": "", "sold_out": True},  # W Satin Dot Flare Skirt
+    "2200083187881": {"color": "", "size": "", "photo": "", "sold_out": True},  # Double Metal Button Cardigan
+    "2200083200030": {"color": "", "size": "", "photo": "", "sold_out": True},  # W Bra Feel Lace Tank Top
+    "2200082429791": {"color": "Off White", "size": "S", "photo": ""},  # W Bra Feel Lace Tank Top
+    "2200079948434": {"color": "", "size": "", "photo": "", "sold_out": True},  # Double-layered openwork knit cardigan
     "2200082429876": {"color": "Black", "size": "M", "photo": "img/2200082429869.png"},  # W Bra Feel Lace Tank Top
-    "2200082907404": {"color": "", "size": "", "photo": ""},  # Double-breasted front button sweater
-    "2200079948496": {"color": "", "size": "", "photo": ""},  # Double-layered openwork knit cardigan
-    "2200080457680": {"color": "", "size": "", "photo": ""},  # W-Scalloped Mini Camisole Tunic
-    "2200082126638": {"color": "", "size": "", "photo": ""},  # W Satin Dot Flare Skirt
-    "2200079328632": {"color": "", "size": "", "photo": ""},  # Double Corduroy Coat
+    "2200082907404": {"color": "Brown", "size": "M", "photo": ""},  # Double-breasted front button sweater
+    "2200079948496": {"color": "Olive", "size": "S", "photo": "img/2200079948496.png"},  # Double-layered openwork knit cardigan
+    "2200080457680": {"color": "White", "size": "S", "photo": ""},  # W-Scalloped Mini Camisole Tunic
+    "2200082126638": {"color": "Black", "size": "S", "photo": "img/2200082126638.png"},  # W Satin Dot Flare Skirt
+    "2200079328632": {"color": "Navy", "size": "S", "photo": ""},  # Double Corduroy Coat
     "2200082429807": {"color": "Off White", "size": "M", "photo": "img/2200082429807.png"},  # W Bra Feel Lace Tank Top
-    "2200082907336": {"color": "", "size": "", "photo": ""},  # Double-breasted front button sweater
-    "2200082927044": {"color": "", "size": "", "photo": ""},  # Double-ribbed boat neck cardigan
-    "2200082926832": {"color": "", "size": "", "photo": ""},  # Double-ribbed boat neck cardigan
-    "2200082926900": {"color": "", "size": "", "photo": ""},  # Double-ribbed boat neck cardigan
-    "2200082907268": {"color": "", "size": "", "photo": ""},  # Double-breasted front button sweater
-    "2200082926979": {"color": "", "size": "", "photo": ""},  # Double-ribbed boat neck cardigan
-    "2200083188246": {"color": "", "size": "", "photo": ""},  # Double Crew Neck Sweater
-    "2000211226457": {"color": "", "size": "", "photo": ""},  # Double-breasted bootcut jeans
-    "2000223607428": {"color": "", "size": "", "photo": ""},  # Double Jersey Barrel Leg Pants
-    "2000217468141": {"color": "", "size": "", "photo": ""},  # Washable Milano Rib Knit T-shirt
+    "2200082907336": {"color": "", "size": "", "photo": "", "sold_out": True},  # Double-breasted front button sweater
+    "2200082927044": {"color": "", "size": "", "photo": "", "sold_out": True},  # Double-ribbed boat neck cardigan
+    "2200082926832": {"color": "", "size": "", "photo": "", "sold_out": True},  # Double-ribbed boat neck cardigan
+    "2200082926900": {"color": "", "size": "", "photo": "", "sold_out": True},  # Double-ribbed boat neck cardigan
+    "2200082907268": {"color": "", "size": "", "photo": "", "sold_out": True},  # Double-breasted front button sweater
+    "2200082926979": {"color": "", "size": "", "photo": "", "sold_out": True},  # Double-ribbed boat neck cardigan
+    "2200083188246": {"color": "", "size": "", "photo": "", "sold_out": True},  # Double Crew Neck Sweater
+    "2000211226457": {"color": "Black", "size": "22", "photo": "img/2000211226457.png"},  # Double-breasted bootcut jeans
+    "2000223607428": {"color": "Beige", "size": "S", "photo": ""},  # Double Jersey Barrel Leg Pants
+    "2000217468141": {"color": "Off White", "size": "M", "photo": ""},  # Washable Milano Rib Knit T-shirt
     "2000224036081": {"color": "Off White", "size": "XL", "photo": "img/2000224036081.png"},  # Double Ribbed Henry Neck T-shirt
-    "2000215227634": {"color": "", "size": "", "photo": ""},  # Cargo shorts
-    "2000205690073": {"color": "", "size": "", "photo": ""},  # Double Heattech Tights
-    "2000217997917": {"color": "", "size": "", "photo": ""},  # Crewneck T-shirt
-    "2000217997894": {"color": "", "size": "", "photo": ""},  # Crewneck T-shirt
-    "2000223047958": {"color": "", "size": "", "photo": ""},  # Washable Milano Rib Knit T-shirt
-    "2000200542186": {"color": "", "size": "", "photo": ""},  # AIRism Cotton Kanoko Polo Shirt
-    "2000221120004": {"color": "", "size": "", "photo": ""},  # Cargo shorts
-    "2000217997900": {"color": "", "size": "", "photo": ""},  # Crewneck T-shirt
-    "2000194175193": {"color": "", "size": "", "photo": ""},  # Double-washable knit ribbed pants
-    "2000221120318": {"color": "", "size": "", "photo": ""},  # Cargo shorts
-    "2000219787301": {"color": "", "size": "", "photo": ""},  # W-Shearing T/N
-    "2000215227627": {"color": "", "size": "", "photo": ""},  # Cargo shorts
+    "2000215227634": {"color": "Beige", "size": "M", "photo": ""},  # Cargo shorts
+    "2000205690073": {"color": "", "size": "", "photo": "", "sold_out": True},  # Double Heattech Tights
+    "2000217997917": {"color": "", "size": "", "photo": "", "sold_out": True},  # Crewneck T-shirt
+    "2000217997894": {"color": "Purple", "size": "S", "photo": ""},  # Crewneck T-shirt
+    "2000223047958": {"color": "Dark Brown", "size": "M", "photo": ""},  # Washable Milano Rib Knit T-shirt
+    "2000200542186": {"color": "", "size": "", "photo": "", "sold_out": True},  # AIRism Cotton Kanoko Polo Shirt
+    "2000221120004": {"color": "", "size": "", "photo": "", "sold_out": True},  # Cargo shorts
+    "2000217997900": {"color": "Purple", "size": "M", "photo": ""},  # Crewneck T-shirt
+    "2000194175193": {"color": "Black", "size": "S", "photo": ""},  # Double-washable knit ribbed pants
+    "2000221120318": {"color": "Navy", "size": "M", "photo": ""},  # Cargo shorts
+    "2000219787301": {"color": "", "size": "", "photo": "", "sold_out": True},  # W-Shearing T/N
+    "2000215227627": {"color": "", "size": "", "photo": "", "sold_out": True},  # Cargo shorts
     "2000217014294": {"color": "Navy", "size": "S", "photo": "img/2000217014294.png"},  # Double Crepe Jersey Bra Top
-    "2000217014157": {"color": "", "size": "", "photo": ""},  # Double Crepe Jersey Bra Top
-    "2000211703750": {"color": "", "size": "", "photo": ""},  # AIRism Cotton Kanoko Polo Shirt
+    "2000217014157": {"color": "Black", "size": "S", "photo": "img/2000217014294.png"},  # Double Crepe Jersey Bra Top
+    "2000211703750": {"color": "", "size": "", "photo": "", "sold_out": True},  # AIRism Cotton Kanoko Polo Shirt
 }
 
 # ---------------------------------------------------------------------------
